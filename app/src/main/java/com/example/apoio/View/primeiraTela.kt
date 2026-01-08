@@ -102,7 +102,7 @@ fun TelaInicial(navController: NavController){
 
             Button(
                 onClick ={
-
+                    navController.navigate("splash2")
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor =  Color.Transparent

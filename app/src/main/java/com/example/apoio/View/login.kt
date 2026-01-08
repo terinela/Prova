@@ -36,7 +36,6 @@ import androidx.navigation.NavController
     fun Login(navController: NavController? = null) {
 
         var nome by remember { mutableStateOf("") }
-        var email by remember { mutableStateOf("") }
         var senha by remember { mutableStateOf("") }
 
         var erro by remember { mutableStateOf("") }
@@ -72,21 +71,6 @@ import androidx.navigation.NavController
 
             Spacer(modifier = Modifier.height(12.dp))
 
-
-            OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Email") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Email
-                )
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-
             OutlinedTextField(
                 value = senha,
                 onValueChange = { senha = it },
@@ -115,11 +99,8 @@ import androidx.navigation.NavController
             Button(
                 onClick = {
                     erro = when {
-                        nome.isBlank() || email.isBlank() || senha.isBlank() ->
+                        nome.isBlank() || senha.isBlank() ->
                             "Por favor, preencha todos os campos."
-
-                        !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() ->
-                            "Email inválido."
 
                         else -> {
                             // Aqui futuramente entra a API REST
