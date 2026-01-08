@@ -19,11 +19,13 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -34,13 +36,15 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.apoio.R
 import com.example.apoio.ui.theme.GreenDark
 import com.example.apoio.ui.theme.GreenLight
 import com.example.apoio.ui.theme.GreenPrimary
+import kotlinx.coroutines.delay
 
 @Composable
-fun TelaInicial(){
+fun TelaInicial(navController: NavController){
 
     Column(
         modifier = Modifier
@@ -78,12 +82,12 @@ fun TelaInicial(){
                 append(" Seja Bem-Vindo \n ao Apoio ")
                 withStyle(
                     style = SpanStyle(
-                        color = GreenDark
+                        color = Green
                     )
                 ){
                     append(" Comunitário \n e Social")
                 }
-                append(" \n O seu apoio é + \n \n")
+                append(" \n O seu apoio é + \n ")
             },
             color = White, fontSize = 25.sp,
             fontWeight = FontWeight.Bold,
@@ -117,7 +121,7 @@ fun TelaInicial(){
 
             Button(
                 onClick ={
-
+                    navController.navigate("splash")
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Green
@@ -139,10 +143,3 @@ fun TelaInicial(){
 
 }
 
-@Preview
-@Composable
-
-  private fun TelaIniciaPreview(){
-
-      TelaInicial()
-}
