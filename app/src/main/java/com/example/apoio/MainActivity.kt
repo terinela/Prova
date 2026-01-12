@@ -20,6 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
+
             var navController = rememberNavController()
 
             NavHost(
