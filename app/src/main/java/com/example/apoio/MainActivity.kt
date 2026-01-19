@@ -7,11 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.apoio.View.CadastroTarefa
 import com.example.apoio.View.CadastroVoluntario
 import com.example.apoio.View.Login
 import com.example.apoio.View.Splash
 import com.example.apoio.View.SplashScreen
+import com.example.apoio.View.TelaBuscaTarefasVoluntarios
 import com.example.apoio.View.TelaInicial
+import com.example.apoio.View.TelaPrincipal
 
 
 class MainActivity : ComponentActivity() {
@@ -19,33 +22,33 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            TelaPrincipal()
 
+       //     var navController = rememberNavController()
 
-            var navController = rememberNavController()
+         //   NavHost(
+           //     navController = navController,
+             //   startDestination = "telainicial"
+            //) {
+              //  composable(route = "telainicial"){
+                //    TelaInicial(navController = navController)
+                //}
 
-            NavHost(
-                navController = navController,
-                startDestination = "telainicial"
-            ) {
-                composable(route = "telainicial"){
-                    TelaInicial(navController = navController)
-                }
+                //composable(route = "splash") {
+                  //  SplashScreen(navController = navController)
+                //}
+                //composable(route = "splash2") {
+                  //  Splash(navController = navController)
+                //}
 
-                composable(route = "splash") {
-                    SplashScreen(navController = navController)
-                }
-                composable(route = "splash2") {
-                    Splash(navController = navController)
-                }
+                //composable(route="login"){
+                  //  Login()
+            //}
 
-                composable(route="login"){
-                    Login()
-            }
-
-                composable(route="cadastro"){
-                    CadastroVoluntario()
-                }
-         }
+              //  composable(route="cadastro"){
+                //    CadastroVoluntario()
+                //}
+         //}
 
 
         }
